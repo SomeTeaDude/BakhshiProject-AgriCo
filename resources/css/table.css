@@ -1,0 +1,46 @@
+.table-container {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.table th {
+    background: var(--light-green);
+    color: var(--primary-green);
+    border: none;
+    font-weight: 600;
+    white-space: nowrap;
+    padding: 15px 10px;
+    font-size: 14px;
+}
+
+.table td {
+    padding: 12px 10px;
+    vertical-align: middle;
+    border-bottom: 1px solid #eee;
+}
+
+.status-badge {
+    padding: 5px 12px;
+    border-radius: 20px;
+    text-wrap: nowrap;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

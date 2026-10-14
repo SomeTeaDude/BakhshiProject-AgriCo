@@ -1,0 +1,127 @@
+.support-tab {
+    display: none;
+}
+
+.support-tab.active {
+    display: block;
+}
+
+.ticket-chat-container {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+#supportSection .card {
+    border: none;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#supportSection .card-header {
+    border-bottom: 2px solid #e3f2fd;
+}
+
+.ticket-message {
+    border-radius: 10px;
+    margin: 10px;
+    padding: 12px;
+    max-width: 80%;
+}
+
+.ticket-message.user {
+    margin-left: auto;
+    background: #1976d2;
+    color: white;
+}
+
+.ticket-message.support {
+    margin-right: auto;
+    background: white;
+    border: 1px solid #e0e0e0;
+}
+
+.ticket-message.system {
+    margin: 10px auto;
+    background: #fff3e0;
+    border: 1px solid #ffb74d;
+    max-width: 60%;
+    text-align: center;
+}
+
+.ticket-status-badge {
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.8em;
+    font-weight: 500;
+}
+
+.status-open {
+    background-color: #e3f2fd;
+    color: #1976d2;
+}
+
+.status-pending {
+    background-color: #fff3e0;
+    color: #f57c00;
+}
+
+.status-resolved {
+    background-color: #e8f5e8;
+    color: #388e3c;
+}
+
+.status-closed {
+    background-color: #f5f5f5;
+    color: #616161;
+}
+
+.priority-badge {
+    padding: 3px 6px;
+    border-radius: 8px;
+    font-size: 0.7em;
+}
+
+.priority-low {
+    background-color: #e8f5e8;
+    color: #388e3c;
+}
+
+.priority-medium {
+    background-color: #fff3e0;
+    color: #f57c00;
+}
+
+.priority-high {
+    background-color: #ffebee;
+    color: #d32f2f;
+}
+
+.priority-urgent {
+    background-color: #fce4ec;
+    color: #c2185b;
+}
+
+#supportTabs .btn {
+    border-radius: 0;
+    flex: 1;
+}
+
+#supportTabs .btn.active {
+    background-color: #e3f2fd;
+    color: #1976d2;
+    border-color: #2196f3;
+}
+
+.message-content {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.btn-primary {
+    background: var(--primary-green);
+    border-color: var(--primary-green);
+    border-radius: 8px;
+}
+
+.btn-primary:hover {
+    background: var(--secondary-green);
+    border-color: var(--secondary-green);
+}
