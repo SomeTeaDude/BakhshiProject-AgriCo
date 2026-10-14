@@ -1,0 +1,42 @@
+body {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e8f5e8 100%);
+  font-family: "Vazirmatn", sans-serif;
+  padding-top: 80px;
+}
+.navbar {
+  background: linear-gradient(135deg, #4caf50 0%, #388e3c 100%);
+  box-shadow: 0 4px 20px rgba(76, 175, 80, 0.3);
+}
+.news-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.news-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(76, 175, 80, 0.2);
+}
+.news-title {
+  font-weight: 700;
+  color: #388e3c;
+  margin-bottom: 0.75rem;
+}
+.news-date {
+  font-size: 0.9rem;
+  color: #777;
+  margin-bottom: 1rem;
+}
+.read-more {
+  margin-top: auto;
+  color: #4caf50;
+  font-weight: 600;
+  text-decoration: none;
+}
+.read-more:hover {
+  text-decoration: underline;
+}

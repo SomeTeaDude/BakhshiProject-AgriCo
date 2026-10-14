@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>دوره‌های من - پنل کاربری فروشگاه کشاورزی</title>
+
+    <!-- Bootstrap 5 RTL -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- Vazirmatn Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="CSS/mycourses.css" />
+  </head>
+  <body>
+    <!-- Sidebar -->
+    <nav class="sidebar" id="sidebar">
+      <div class="p-4">
+        <h4 class="mb-4">
+          <i class="fas fa-user-circle me-2"></i>
+          پنل کاربری
+        </h4>
+      </div>
+
+      <nav class="nav flex-column">
+        <a
+          class="nav-link "
+          href="Dashboard.html"
+          data-section="dashboard"
+        >
+          <i class="fas fa-chart-pie ms-2"></i>
+          داشبورد
+        </a>
+        <a class="nav-link" href="payment.html" data-section="payments">
+          <i class="fas fa-credit-card ms-2"></i>
+          پرداخت‌ها
+        </a>
+        <a class="nav-link" href="cart.html" data-section="cart">
+          <i class="fas fa-shopping-cart ms-2"></i>
+          سبد خرید
+        </a>
+        <a class="nav-link" href="mycourses.html" data-section="mycourses">
+          <i class="fas fa-graduation-cap ms-2"></i>
+          دوره‌های من
+        </a>
+        <a class="nav-link" href="myProducts.html" data-section="myproducts">
+          <i class="fas fa-box ms-2"></i>
+          محصولات من
+        </a>
+        <a class="nav-link" href="news.html" data-section="news">
+          <i class="fas fa-newspaper ms-2"></i>
+          اخبار
+        </a>
+        <a class="nav-link" href="profile.html" data-section="profile">
+          <i class="fas fa-user-edit ms-2"></i>
+          ویرایش پروفایل
+        </a>
+        <a class="nav-link" href="support.html" data-section="support">
+          <i class="fas fa-headset ms-2"></i>
+          پیام به پشتیبانی
+        </a>
+        <hr class="my-3" />
+        <a class="nav-link" href="../home.html">
+          <i class="fas fa-store ms-2"></i>
+          مشاهده فروشگاه
+        </a>
+        <a
+          class="nav-link"
+          href="#"
+          onclick="DashboardManager.showLogoutModal()"
+        >
+          <i class="fas fa-sign-out-alt ms-2"></i>
+          خروج
+        </a>
+      </nav>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Header -->
+      <header class="header">
+        <div class="container-fluid">
+          <div class="row align-items-center">
+            <div class="col-6 col-md-8">
+              <div class="d-flex align-items-center">
+                <button
+                  class="btn btn-outline-success d-lg-none me-3"
+                  id="toggleSidebar"
+                >
+                  <i class="fas fa-bars"></i>
+                </button>
+                <h3 class="mb-0">دوره‌های من</h3>
+              </div>
+            </div>
+            <div class="col-6 col-md-4">
+              <div class="d-flex align-items-center justify-content-end">
+                <span class="me-2 d-none d-sm-inline" id="userGreeting"
+                  >سلام، رضا عزیز</span
+                >
+                <div class="user-avatar bg-success">
+                  <i class="fas fa-user text-white"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Courses Content -->
+      <section class="courses-content container-fluid py-4">
+        <!-- Header Actions -->
+        <div class="row mb-4">
+          <div class="col-12">
+            <div
+              class="d-flex justify-content-between align-items-center flex-wrap"
+            >
+              <div class="section-header">
+                <h4>مدیریت دوره‌های آموزشی</h4>
+                <p class="text-muted mb-0">
+                  مشاهده و ادامه دوره‌های خریداری شده
+                </p>
+              </div>
+              <div class="header-actions">
+                <button
+                  class="btn btn-primary me-2"
+                  onclick="CoursesManager.browseNewCourses()"
+                >
+                  <i class="fas fa-plus me-1"></i>
+                  مشاهده دوره‌های جدید
+                </button>
+                <button
+                  class="btn btn-outline-secondary"
+                  onclick="CoursesManager.downloadCertificates()"
+                >
+                  <i class="fas fa-certificate me-1"></i>
+                  گواهینامه‌ها
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="row mb-4">
+          <div class="col-lg-3 col-md-6 mb-3">
+            <div class="stats-card">
+              <div class="stats-icon bg-primary">
+                <i class="fas fa-book-open"></i>
+              </div>
+              <div class="stats-content">
+                <h3 id="totalCourses">5</h3>
+                <p>کل دوره‌ها</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-3">
+            <div class="stats-card">
+              <div class="stats-icon bg-success">
+                <i class="fas fa-check-circle"></i>
+              </div>
+              <div class="stats-content">
+                <h3 id="completedCourses">2</h3>
+                <p>تکمیل شده</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-3">
+            <div class="stats-card">
+              <div class="stats-icon bg-warning">
+                <i class="fas fa-clock"></i>
+              </div>
+              <div class="stats-content">
+                <h3 id="inProgressCourses">3</h3>
+                <p>در حال یادگیری</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-3">
+            <div class="stats-card">
+              <div class="stats-icon bg-info">
+                <i class="fas fa-chart-line"></i>
+              </div>
+              <div class="stats-content">
+                <h3 id="averageProgress">68%</h3>
+                <p>میانگین پیشرفت</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Filters and View Options -->
+        <div class="row mb-4">
+          <div class="col-12">
+            <div class="filters-card">
+              <div class="row g-3 align-items-center">
+                <div class="col-lg-3 col-md-6">
+                  <label class="form-label">جستجو در دوره‌ها</label>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="نام دوره، مدرس..."
+                      id="searchInput"
+                    />
+                    <button
+                      class="btn btn-outline-secondary"
+                      type="button"
+                      onclick="CoursesManager.searchCourses()"
+                    >
+                      <i class="fas fa-search"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                  <label class="form-label">فیلتر بر اساس وضعیت</label>
+                  <select
+                    class="form-select"
+                    id="statusFilter"
+                    onchange="CoursesManager.filterCourses()"
+                  >
+                    <option value="all">همه دوره‌ها</option>
+                    <option value="in-progress">در حال یادگیری</option>
+                    <option value="completed">تکمیل شده</option>
+                    <option value="not-started">شروع نشده</option>
+                  </select>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                  <label class="form-label">مرتب‌سازی بر اساس</label>
+                  <select
+                    class="form-select"
+                    id="sortFilter"
+                    onchange="CoursesManager.sortCourses()"
+                  >
+                    <option value="progress">پیشرفت (زیاد به کم)</option>
+                    <option value="progress-asc">پیشرفت (کم به زیاد)</option>
+                    <option value="recent">آخرین دسترسی</option>
+                    <option value="title">نام دوره</option>
+                    <option value="duration">مدت زمان</option>
+                  </select>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                  <label class="form-label">نمایش</label>
+                  <div class="view-options">
+                    <button
+                      class="btn btn-outline-primary active"
+                      id="gridViewBtn"
+                      onclick="CoursesManager.toggleView('grid')"
+                    >
+                      <i class="fas fa-th"></i>
+                    </button>
+                    <button
+                      class="btn btn-outline-secondary"
+                      id="listViewBtn"
+                      onclick="CoursesManager.toggleView('list')"
+                    >
+                      <i class="fas fa-list"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Courses Grid/List -->
+        <div class="row" id="coursesContainer">
+          <!-- Courses will be loaded here -->
+        </div>
+
+        <!-- No Courses Message -->
+        <div class="row" id="noCoursesMessage" style="display: none">
+          <div class="col-12">
+            <div class="empty-state">
+              <div class="empty-icon">
+                <i class="fas fa-graduation-cap"></i>
+              </div>
+              <h4>هنوز دوره‌ای خریداری نکرده‌اید</h4>
+              <p class="text-muted">
+                می‌توانید از میان دوره‌های موجود در فروشگاه انتخاب کنید
+              </p>
+              <button
+                class="btn btn-primary"
+                onclick="CoursesManager.browseNewCourses()"
+              >
+                <i class="fas fa-shopping-cart me-1"></i>
+                مشاهده دوره‌های جدید
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Progress Overview -->
+        <div class="row mt-5">
+          <div class="col-12">
+            <div class="progress-overview-card">
+              <div class="card-header">
+                <h5>نمای کلی پیشرفت</h5>
+                <button
+                  class="btn btn-sm btn-outline-primary"
+                  onclick="CoursesManager.viewProgressReport()"
+                >
+                  گزارش کامل
+                </button>
+              </div>
+              <div class="card-body">
+                <div class="progress-overview">
+                  <div class="progress-item">
+                    <div class="progress-info">
+                      <span class="progress-label">دوره‌های فعال</span>
+                      <span class="progress-value">3/5</span>
+                    </div>
+                    <div class="progress-bar">
+                      <div class="progress-fill" style="width: 60%"></div>
+                    </div>
+                  </div>
+                  <div class="progress-item">
+                    <div class="progress-info">
+                      <span class="progress-label">ساعات مطالعه</span>
+                      <span class="progress-value">15/40 ساعت</span>
+                    </div>
+                    <div class="progress-bar">
+                      <div class="progress-fill" style="width: 37.5%"></div>
+                    </div>
+                  </div>
+                  <div class="progress-item">
+                    <div class="progress-info">
+                      <span class="progress-label">تمرین‌های انجام شده</span>
+                      <span class="progress-value">24/50</span>
+                    </div>
+                    <div class="progress-bar">
+                      <div class="progress-fill" style="width: 48%"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Suggested Courses -->
+        <div class="row mt-5">
+          <div class="col-12">
+            <div class="section-title">
+              <h4>دوره‌های پیشنهادی برای شما</h4>
+              <p>بر اساس دوره‌هایی که مشاهده کرده‌اید</p>
+            </div>
+            <div class="row" id="suggestedCourses">
+              <!-- Suggested courses will be loaded here -->
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Course Player Modal -->
+    <div class="modal fade" id="coursePlayerModal" tabindex="-1">
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="coursePlayerTitle">پخش دوره</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-body p-0">
+            <div id="coursePlayerContent">
+              <!-- Course player will be loaded here -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Course Details Modal -->
+    <div class="modal fade" id="courseDetailsModal" tabindex="-1">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">جزئیات دوره</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-body" id="courseDetailsContent">
+            <!-- Course details will be loaded here -->
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              بستن
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              onclick="CoursesManager.startCourse()"
+            >
+              <i class="fas fa-play me-1"></i>
+              شروع دوره
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Logout Modal -->
+    <div class="modal fade" id="logoutModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-body text-center p-4">
+            <div class="mb-3">
+              <i
+                class="fas fa-sign-out-alt text-warning"
+                style="font-size: 48px"
+              ></i>
+            </div>
+            <h5 class="mb-3">خروج از حساب کاربری</h5>
+            <p class="text-muted mb-4">
+              آیا مطمئن هستید که می‌خواهید خارج شوید؟
+            </p>
+            <div class="d-flex justify-content-center gap-3">
+              <button
+                type="button"
+                class="btn btn-secondary px-4"
+                data-bs-dismiss="modal"
+              >
+                <i class="fas fa-times ms-1"></i>
+                انصراف
+              </button>
+              <button
+                type="button"
+                class="btn btn-warning px-4"
+                onclick="CoursesManager.confirmLogout()"
+              >
+                <i class="fas fa-sign-out-alt ms-1"></i>
+                خروج
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="js/mycourses.js"></script>
+  </body>
+</html>

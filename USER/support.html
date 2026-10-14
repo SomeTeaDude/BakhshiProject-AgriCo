@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNCIgZmlsbD0iIzJlN2QzMiIvPgo8cGF0aCBkPSJNMTYgOEMxOC4yMSA4IDIwIDkuNzkgMjAgMTJWMTZIMjNWMTlIMjBWMjRIMTdWMTlIOVYyNEg2VjE5SDlWMTZIMTJWMTJDMTIgOS43OSAxMy43OSA4IDE2IDhaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K"
+    />
+    <title>پشتیبانی - پنل کاربری فروشگاه کشاورزی</title>
+
+    <!-- Bootstrap 5 RTL -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- Vazirmatn Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="CSS/supprt.css" />
+  </head>
+  <body>
+    <!-- Sidebar Overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Sidebar -->
+    <nav class="sidebar" id="sidebar">
+      <div class="p-4">
+        <h4 class="mb-4">
+          <i class="fas fa-user-circle me-2"></i>
+          پنل کاربری
+        </h4>
+      </div>
+
+      <nav class="nav flex-column">
+        <a class="nav-link" href="Dashboard.html" data-section="dashboard">
+          <i class="fas fa-chart-pie ms-2"></i>
+          داشبورد
+        </a>
+        <a class="nav-link" href="payment.html" data-section="payments">
+          <i class="fas fa-credit-card ms-2"></i>
+          پرداخت‌ها
+        </a>
+        <a class="nav-link" href="cart.html" data-section="cart">
+          <i class="fas fa-shopping-cart ms-2"></i>
+          سبد خرید
+        </a>
+        <a class="nav-link" href="mycourses.html" data-section="mycourses">
+          <i class="fas fa-graduation-cap ms-2"></i>
+          دوره‌های من
+        </a>
+        <a class="nav-link" href="myProducts.html" data-section="myproducts">
+          <i class="fas fa-box ms-2"></i>
+          محصولات من
+        </a>
+        <a class="nav-link" href="news.html" data-section="news">
+          <i class="fas fa-newspaper ms-2"></i>
+          اخبار
+        </a>
+        <a class="nav-link" href="profile.html" data-section="profile">
+          <i class="fas fa-user-edit ms-2"></i>
+          ویرایش پروفایل
+        </a>
+        <a class="nav-link active" href="support.html" data-section="support">
+          <i class="fas fa-headset ms-2"></i>
+          پیام به پشتیبانی
+        </a>
+        <hr class="my-3" />
+        <a class="nav-link" href="../home.html">
+          <i class="fas fa-store ms-2"></i>
+          مشاهده فروشگاه
+        </a>
+        <a class="nav-link" href="#" onclick="UserPanelState.showLogoutModal()">
+          <i class="fas fa-sign-out-alt ms-2"></i>
+          خروج
+        </a>
+      </nav>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Header -->
+      <header class="header">
+        <div class="container-fluid">
+          <div class="row align-items-center">
+            <div class="col-6 col-md-8">
+              <div class="d-flex align-items-center">
+                <button
+                  class="btn btn-outline-success d-lg-none me-3"
+                  id="toggleSidebar"
+                >
+                  <i class="fas fa-bars"></i>
+                </button>
+                <h3 class="mb-0" id="pageTitle">پیام به پشتیبانی</h3>
+              </div>
+            </div>
+            <div class="col-6 col-md-4">
+              <div class="d-flex align-items-center justify-content-end">
+                <span class="me-2 d-none d-sm-inline">سلام، رضا عزیز</span>
+                <div
+                  class="bg-success rounded-circle d-flex align-items-center justify-content-center"
+                  style="width: 40px; height: 40px"
+                >
+                  <i class="fas fa-user text-white"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Support Section -->
+      <section id="supportSection" class="container-fluid py-4">
+        <div class="row">
+          <div class="col-lg-8">
+            <div class="card mb-4">
+              <div class="card-header bg-light">
+                <h5 class="card-title mb-0">
+                  <i class="fas fa-headset me-2"></i>
+                  گفتگو با پشتیبانی
+                </h5>
+              </div>
+              <div class="card-body p-0">
+                <div class="d-flex border-bottom" id="supportTabs">
+                  <button
+                    class="btn btn-outline-primary rounded-0 border-0 active"
+                    data-tab="new"
+                  >
+                    <i class="fas fa-plus me-2"></i>تیکت جدید
+                  </button>
+                  <button
+                    class="btn btn-outline-secondary rounded-0 border-0"
+                    data-tab="tickets"
+                  >
+                    <i class="fas fa-list me-2"></i>تیکت‌های من
+                    <span class="badge bg-primary ms-1" id="ticketsCount"
+                      >0</span
+                    >
+                  </button>
+                </div>
+
+                <!-- بخش تیکت جدید -->
+                <div id="newTab" class="support-tab active">
+                  <form id="supportForm" class="p-3">
+                    <div class="mb-3">
+                      <label class="form-label">موضوع *</label>
+                      <select class="form-select" id="ticketSubject" required>
+                        <option value="">انتخاب موضوع...</option>
+                        <option value="پرسش درباره محصول">
+                          پرسش درباره محصول
+                        </option>
+                        <option value="مشکل در خرید">مشکل در خرید</option>
+                        <option value="پیشنهاد یا انتقاد">
+                          پیشنهاد یا انتقاد
+                        </option>
+                        <option value="مشکل فنی">مشکل فنی</option>
+                        <option value="سایر">سایر</option>
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label">اولویت</label>
+                      <select class="form-select" id="ticketPriority">
+                        <option value="low">کم</option>
+                        <option value="medium" selected>متوسط</option>
+                        <option value="high">بالا</option>
+                        <option value="urgent">فوری</option>
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label">پیام شما *</label>
+                      <textarea
+                        class="form-control"
+                        id="ticketMessage"
+                        rows="5"
+                        placeholder="متن پیام خود را با جزئیات کامل بنویسید..."
+                        required
+                      ></textarea>
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label">ضمیمه (اختیاری)</label>
+                      <input
+                        type="file"
+                        class="form-control"
+                        id="ticketAttachment"
+                        accept=".jpg,.jpeg,.png,.pdf,.doc,.docx"
+                      />
+                      <small class="text-muted"
+                        >حداکثر حجم فایل: 5MB (پشتیبانی از JPG, PNG, PDF,
+                        DOC)</small
+                      >
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                      <i class="fas fa-paper-plane me-1"></i>
+                      ارسال تیکت
+                    </button>
+                  </form>
+                </div>
+
+                <!-- بخش لیست تیکت‌ها -->
+                <div id="ticketsTab" class="support-tab">
+                  <div class="p-3">
+                    <div class="input-group mb-3">
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="جستجو در تیکت‌ها..."
+                        id="ticketSearch"
+                      />
+                      <button class="btn btn-outline-secondary" type="button">
+                        <i class="fas fa-search"></i>
+                      </button>
+                    </div>
+
+                    <div class="table-responsive">
+                      <table class="table table-hover">
+                        <thead>
+                          <tr>
+                            <th>شماره تیکت</th>
+                            <th>موضوع</th>
+                            <th>تاریخ ایجاد</th>
+                            <th>وضعیت</th>
+                            <th>آخرین بروزرسانی</th>
+                            <th>عملیات</th>
+                          </tr>
+                        </thead>
+                        <tbody id="ticketsTable">
+                          <!-- تیکت‌ها اینجا بارگذاری می‌شوند -->
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <!-- اطلاعات تماس و راهنما -->
+            <div class="card mb-4">
+              <div class="card-header bg-light">
+                <h6 class="card-title mb-0">راهنمای پشتیبانی</h6>
+              </div>
+              <div class="card-body">
+                <div class="mb-3">
+                  <i class="fas fa-clock text-primary me-2"></i>
+                  <strong>ساعات پاسخگویی:</strong>
+                  <p class="text-muted small mb-0">
+                    شنبه تا پنجشنبه: ۸:۰۰ تا ۱۸:۰۰
+                  </p>
+                </div>
+                <div class="mb-3">
+                  <i class="fas fa-phone text-primary me-2"></i>
+                  <strong>تلفن پشتیبانی:</strong>
+                  <p class="text-muted small mb-0">۰۲۱-۱۲۳۴۵۶۷۸</p>
+                </div>
+                <div class="mb-3">
+                  <i class="fas fa-envelope text-primary me-2"></i>
+                  <strong>ایمیل:</strong>
+                  <p class="text-muted small mb-0">support@keshavarzi.com</p>
+                </div>
+                <hr />
+                <h6>نکات مهم:</h6>
+                <ul class="small text-muted">
+                  <li>پاسخ تیکت‌ها حداکثر طی ۲۴ ساعت داده می‌شود</li>
+                  <li>برای مشکلات فوری از تلفن تماس بگیرید</li>
+                  <li>پیام خود را با جزئیات کامل ارسال کنید</li>
+                  <li>شماره تیکت خود را نزد خود نگه دارید</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- مودال نمایش چت تیکت -->
+    <div class="modal fade" id="ticketChatModal" tabindex="-1">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header bg-primary text-white">
+            <h5 class="modal-title" id="ticketChatTitle">مشاهده تیکت</h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-body p-0">
+            <div class="ticket-header p-3 border-bottom">
+              <div class="row">
+                <div class="col-md-6">
+                  <strong>شماره تیکت:</strong>
+                  <span id="ticketNumber">-</span>
+                </div>
+                <div class="col-md-6">
+                  <strong>وضعیت:</strong>
+                  <span id="ticketStatus" class="badge">-</span>
+                </div>
+                <div class="col-md-6">
+                  <strong>موضوع:</strong>
+                  <span id="ticketSubjectText">-</span>
+                </div>
+                <div class="col-md-6">
+                  <strong>اولویت:</strong>
+                  <span id="ticketPriorityText">-</span>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="ticket-chat-container"
+              style="height: 400px; overflow-y: auto"
+              id="ticketChatMessages"
+            >
+              <!-- پیام‌های چت اینجا نمایش داده می‌شوند -->
+            </div>
+
+            <div class="ticket-reply p-3 border-top">
+              <form id="ticketReplyForm">
+                <div class="input-group">
+                  <textarea
+                    class="form-control"
+                    placeholder="پاسخ خود را بنویسید..."
+                    rows="2"
+                    id="ticketReplyMessage"
+                    required
+                  ></textarea>
+                  <button class="btn btn-primary" type="submit">
+                    <i class="fas fa-paper-plane"></i>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Logout Modal -->
+    <div class="modal fade" id="logoutModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg">
+          <div class="modal-body text-center p-4">
+            <div class="mb-3">
+              <i
+                class="fas fa-sign-out-alt text-warning"
+                style="font-size: 48px"
+              ></i>
+            </div>
+            <h5 class="mb-3">خروج از حساب کاربری</h5>
+            <p class="text-muted mb-4">
+              آیا مطمئن هستید که می‌خواهید خارج شوید؟
+            </p>
+            <div class="d-flex justify-content-center gap-3">
+              <button
+                type="button"
+                class="btn btn-secondary px-4"
+                data-bs-dismiss="modal"
+              >
+                <i class="fas fa-times ms-1"></i>
+                انصراف
+              </button>
+              <button
+                type="button"
+                class="btn btn-warning px-4"
+                onclick="UserPanelState.confirmLogout()"
+              >
+                <i class="fas fa-sign-out-alt ms-1"></i>
+                خروج
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="js/support.js"></script>
+  </body>
+</html>

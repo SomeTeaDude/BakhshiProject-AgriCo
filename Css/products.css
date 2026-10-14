@@ -1,0 +1,48 @@
+body {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e8f5e8 100%);
+  font-family: "Vazirmatn", sans-serif;
+  padding-top: 80px;
+}
+.navbar {
+  background: linear-gradient(135deg, #4caf50 0%, #388e3c 100%);
+  box-shadow: 0 4px 20px rgba(76, 175, 80, 0.3);
+}
+.product-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s;
+  text-align: center;
+  height: 100%;
+}
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(76, 175, 80, 0.2);
+}
+.product-icon {
+  font-size: 3rem;
+  color: #4caf50;
+  margin-bottom: 1rem;
+}
+.product-title {
+  font-weight: 600;
+  color: #388e3c;
+  margin-bottom: 0.5rem;
+}
+.product-price {
+  color: #4caf50;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.add-btn {
+  background: linear-gradient(45deg, #4caf50, #81c784);
+  border: none;
+  color: #fff;
+  padding: 8px 20px;
+  border-radius: 25px;
+  font-weight: 600;
+}
+.add-btn:hover {
+  opacity: 0.9;
+}

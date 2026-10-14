@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ویرایش پروفایل - فروشگاه کشاورزی</title>
+
+    <!-- Bootstrap 5 RTL -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- Vazirmatn Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="CSS/profile.css" />
+  </head>
+  <body>
+      <!-- Sidebar -->
+    <nav class="sidebar" id="sidebar">
+      <div class="p-4">
+        <h4 class="mb-4">
+          <i class="fas fa-user-circle me-2"></i>
+          پنل کاربری
+        </h4>
+      </div>
+
+      <nav class="nav flex-column">
+        <a
+          class="nav-link "
+          href="Dashboard.html"
+          data-section="dashboard"
+        >
+          <i class="fas fa-chart-pie ms-2"></i>
+          داشبورد
+        </a>
+        <a class="nav-link" href="payment.html" data-section="payments">
+          <i class="fas fa-credit-card ms-2"></i>
+          پرداخت‌ها
+        </a>
+        <a class="nav-link" href="cart.html" data-section="cart">
+          <i class="fas fa-shopping-cart ms-2"></i>
+          سبد خرید
+        </a>
+        <a class="nav-link" href="mycourses.html" data-section="mycourses">
+          <i class="fas fa-graduation-cap ms-2"></i>
+          دوره‌های من
+        </a>
+        <a class="nav-link" href="myProducts.html" data-section="myproducts">
+          <i class="fas fa-box ms-2"></i>
+          محصولات من
+        </a>
+        <a class="nav-link" href="news.html" data-section="news">
+          <i class="fas fa-newspaper ms-2"></i>
+          اخبار
+        </a>
+        <a class="nav-link" href="profile.html" data-section="profile">
+          <i class="fas fa-user-edit ms-2"></i>
+          ویرایش پروفایل
+        </a>
+        <a class="nav-link" href="support.html" data-section="support">
+          <i class="fas fa-headset ms-2"></i>
+          پیام به پشتیبانی
+        </a>
+        <hr class="my-3" />
+        <a class="nav-link" href="../home.html">
+          <i class="fas fa-store ms-2"></i>
+          مشاهده فروشگاه
+        </a>
+        <a
+          class="nav-link"
+          href="#"
+          onclick="DashboardManager.showLogoutModal()"
+        >
+          <i class="fas fa-sign-out-alt ms-2"></i>
+          خروج
+        </a>
+      </nav>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Header -->
+      <header class="header">
+        <div class="container-fluid">
+          <div class="row align-items-center">
+            <div class="col-6 col-md-8">
+              <div class="d-flex align-items-center">
+                <button
+                  class="btn btn-outline-success d-lg-none me-3"
+                  id="toggleSidebar"
+                >
+                  <i class="fas fa-bars"></i>
+                </button>
+                <h3 class="mb-0">ویرایش پروفایل</h3>
+              </div>
+            </div>
+            <div class="col-6 col-md-4">
+              <div class="d-flex align-items-center justify-content-end">
+                <span class="me-2 d-none d-sm-inline">سلام، رضا عزیز</span>
+                <div
+                  class="bg-success rounded-circle d-flex align-items-center justify-content-center"
+                  style="width: 40px; height: 40px"
+                >
+                  <i class="fas fa-user text-white"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Profile Section -->
+      <section id="profileSection" class="container-fluid py-4">
+        <div class="row">
+          <div class="col-lg-4">
+            <!-- کارت اطلاعات کاربر -->
+            <div class="profile-card">
+              <div class="card-body text-center">
+                <div class="avatar-upload mb-3">
+                  <img
+                    src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjEyMCIgdmlld0JveD0iMCAwIDEyMCAxMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iNjAiIGN5PSI2MCIgcj0iNjAiIGZpbGw9IiM0Q0FGNTAiLz48cGF0aCBkPSJNNjAgMzBDNjkuOTQxNiAzMCA3OCA0MC4xNTg0IDc4IDUyLjVINDJDNDIgNDAuMTU4NCA1MC4wNTg0IDMwIDYwIDMwWiIgZmlsbD0id2hpdGUiLz48Y2lyY2xlIGN4PSI2MCIgY3k9IjYwIiByPSIyMCIgZmlsbD0id2hpdGUiLz48L3N2Zz4="
+                    alt="پروفایل"
+                    class="profile-avatar"
+                    id="profileAvatar"
+                  />
+                  <div
+                    class="avatar-upload-btn"
+                    onclick="document.getElementById('avatarInput').click()"
+                  >
+                    <i class="fas fa-camera"></i>
+                  </div>
+                  <input type="file" id="avatarInput" accept="image/*" />
+                </div>
+                <h5 id="profileName">رضا موسوی</h5>
+                <p class="text-muted" id="profileEmail">
+                  profesorDied@gmail.com
+                </p>
+                <p class="text-muted">
+                  <i class="fas fa-calendar me-1"></i>
+                  عضو از <span id="joinDate">1404/05/10</span>
+                </p>
+                <button
+                  class="btn btn-outline-primary btn-sm mt-2"
+                  onclick="document.getElementById('avatarInput').click()"
+                >
+                  <i class="fas fa-camera ms-1"></i>
+                  تغییر تصویر پروفایل
+                </button>
+              </div>
+            </div>
+
+            <!-- کارت آمار حساب -->
+            <div class="profile-card mt-4">
+              <div class="card-body">
+                <h6 class="card-title mb-3">
+                  <i class="fas fa-chart-bar me-2"></i>
+                  آمار حساب کاربری
+                </h6>
+                <div class="stats-item">
+                  <span>تعداد سفارشات:</span>
+                  <strong id="ordersCount">۵</strong>
+                </div>
+                <div class="stats-item">
+                  <span>دوره‌های خریداری شده:</span>
+                  <strong id="coursesCount">۳</strong>
+                </div>
+                <div class="stats-item">
+                  <span>مجموع خریدها:</span>
+                  <strong id="totalSpent">۲,۴۵۰,۰۰۰ تومان</strong>
+                </div>
+                <div class="stats-item">
+                  <span>اعتبار کیف پول:</span>
+                  <strong id="walletBalance">۱۵۰,۰۰۰ تومان</strong>
+                </div>
+                <div class="stats-item">
+                  <span>امتیاز وفاداری:</span>
+                  <strong id="loyaltyPoints">۱,۲۵۰ امتیاز</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-8">
+            <!-- فرم ویرایش اطلاعات شخصی -->
+            <div class="profile-card">
+              <div class="card-body">
+                <h5 class="card-title mb-4">
+                  <i class="fas fa-user-edit me-2"></i>
+                  ویرایش اطلاعات شخصی
+                </h5>
+                <form id="profileForm">
+                  <div class="row">
+                    <div class="col-md-6 mb-3">
+                      <label class="form-label">نام</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="firstName"
+                        value="رضا"
+                        required
+                      />
+                      <div class="invalid-feedback">
+                        لطفاً نام خود را وارد کنید
+                      </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                      <label class="form-label">نام خانوادگی</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="lastName"
+                        value="موسوی"
+                        required
+                      />
+                      <div class="invalid-feedback">
+                        لطفاً نام خانوادگی خود را وارد کنید
+                      </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                      <label class="form-label">ایمیل</label>
+                      <input
+                        type="email"
+                        class="form-control"
+                        id="email"
+                        value="profesorDied@gmail.com"
+                        required
+                      />
+                      <div class="invalid-feedback">
+                        لطفاً ایمیل معتبر وارد کنید
+                      </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                      <label class="form-label">تلفن همراه</label>
+                      <input
+                        type="tel"
+                        class="form-control"
+                        id="phone"
+                        value="09379863252"
+                        required
+                      />
+                      <div class="invalid-feedback">
+                        لطفاً شماره تلفن معتبر وارد کنید
+                      </div>
+                    </div>
+                    <div class="col-12 mb-3">
+                      <label class="form-label">استان</label>
+                      <select class="form-select" id="province">
+                        <option value="mazandaran" selected>مازندران</option>
+                        <option value="tehran">تهران</option>
+                        <option value="isfahan">اصفهان</option>
+                        <option value="khorasan">خراسان رضوی</option>
+                        <option value="fars">فارس</option>
+                      </select>
+                    </div>
+                    <div class="col-12 mb-3">
+                      <label class="form-label">آدرس دقیق</label>
+                      <textarea
+                        class="form-control"
+                        id="address"
+                        rows="3"
+                        required
+                      >
+نکا، بلوار انقلاب، پلاک ۱۲۳</textarea
+                      >
+                      <div class="invalid-feedback">
+                        لطفاً آدرس خود را وارد کنید
+                      </div>
+                    </div>
+                    <div class="col-12 mb-3">
+                      <label class="form-label">درباره من</label>
+                      <textarea
+                        class="form-control"
+                        id="bio"
+                        rows="2"
+                        placeholder="توضیح مختصری درباره خودتان..."
+                      >
+کشاورز و علاقه‌مند به کشاورزی مدرن</textarea
+                      >
+                    </div>
+                    <div class="col-12">
+                      <div class="d-flex gap-2">
+                        <button type="submit" class="btn btn-primary">
+                          <i class="fas fa-save ms-1"></i>
+                          ذخیره تغییرات
+                        </button>
+                        <button
+                          type="button"
+                          class="btn btn-outline-secondary"
+                          id="cancelEdit"
+                        >
+                          انصراف
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <!-- فرم تغییر رمز عبور -->
+            <div class="profile-card mt-4">
+              <div class="card-body">
+                <h5 class="card-title mb-4">
+                  <i class="fas fa-key me-2"></i>
+                  تغییر رمز عبور
+                </h5>
+                <form id="passwordForm">
+                  <div class="row">
+                    <div class="col-md-6 mb-3">
+                      <label class="form-label">رمز عبور فعلی</label>
+                      <input
+                        type="password"
+                        class="form-control"
+                        id="currentPassword"
+                        required
+                      />
+                      <div class="invalid-feedback">
+                        لطفاً رمز عبور فعلی را وارد کنید
+                      </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                      <label class="form-label">رمز عبور جدید</label>
+                      <input
+                        type="password"
+                        class="form-control"
+                        id="newPassword"
+                        required
+                      />
+                      <div class="invalid-feedback">
+                        لطفاً رمز عبور جدید را وارد کنید
+                      </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                      <label class="form-label">تکرار رمز عبور جدید</label>
+                      <input
+                        type="password"
+                        class="form-control"
+                        id="confirmPassword"
+                        required
+                      />
+                      <div class="invalid-feedback">
+                        لطفاً تکرار رمز عبور را وارد کنید
+                      </div>
+                      <div class="password-strength mt-2">
+                        <div
+                          class="password-strength-bar"
+                          id="passwordStrengthBar"
+                        ></div>
+                      </div>
+                      <div
+                        class="password-requirements"
+                        id="passwordRequirements"
+                      >
+                        <div>
+                          <i
+                            class="fas fa-circle requirement-not-met"
+                            id="lengthReq"
+                          ></i>
+                          حداقل ۸ کاراکتر
+                        </div>
+                        <div>
+                          <i
+                            class="fas fa-circle requirement-not-met"
+                            id="numberReq"
+                          ></i>
+                          شامل عدد
+                        </div>
+                        <div>
+                          <i
+                            class="fas fa-circle requirement-not-met"
+                            id="letterReq"
+                          ></i>
+                          شامل حرف
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-key ms-1"></i>
+                        تغییر رمز عبور
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <!-- تنظیمات اختیاری -->
+            <div class="profile-card mt-4">
+              <div class="card-body">
+                <h5 class="card-title mb-4">
+                  <i class="fas fa-cog me-2"></i>
+                  تنظیمات اختیاری
+                </h5>
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <div class="form-check form-switch">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="emailNotifications"
+                        checked
+                      />
+                      <label class="form-check-label" for="emailNotifications">
+                        دریافت اطلاعیه‌ها از طریق ایمیل
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <div class="form-check form-switch">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="smsNotifications"
+                      />
+                      <label class="form-check-label" for="smsNotifications">
+                        دریافت اطلاعیه‌ها از طریق SMS
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <div class="form-check form-switch">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="specialOffers"
+                        checked
+                      />
+                      <label class="form-check-label" for="specialOffers">
+                        دریافت پیشنهادات ویژه
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <div class="form-check form-switch">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="newsletter"
+                        checked
+                      />
+                      <label class="form-check-label" for="newsletter">
+                        عضویت در خبرنامه
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <button
+                      type="button"
+                      class="btn btn-outline-primary"
+                      onclick="ProfileManager.saveSettings()"
+                    >
+                      <i class="fas fa-save ms-1"></i>
+                      ذخیره تنظیمات
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Logout Modal -->
+    <div class="modal fade" id="logoutModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg">
+          <div class="modal-body text-center p-4">
+            <div class="mb-3">
+              <i
+                class="fas fa-sign-out-alt text-warning"
+                style="font-size: 48px"
+              ></i>
+            </div>
+            <h5 class="mb-3">خروج از حساب کاربری</h5>
+            <p class="text-muted mb-4">
+              آیا مطمئن هستید که می‌خواهید خارج شوید؟
+            </p>
+            <div class="d-flex justify-content-center gap-3">
+              <button
+                type="button"
+                class="btn btn-secondary px-4"
+                data-bs-dismiss="modal"
+              >
+                <i class="fas fa-times ms-1"></i>
+                انصراف
+              </button>
+              <button
+                type="button"
+                class="btn btn-warning px-4"
+                id="confirmLogout"
+              >
+                <i class="fas fa-sign-out-alt ms-1"></i>
+                خروج
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="js/profile.js"></script>
+  </body>
+</html>

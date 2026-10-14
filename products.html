@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>محصولات - مهندس بخشی</title>
+
+    <!-- Bootstrap & Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.rtl.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="Css/products.css" />
+    <link rel="stylesheet" href="Css/main.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container">
+        <a class="navbar-brand text-white fw-bold" href="home.html">
+          <i class="fas fa-seedling me-2"></i>مهندس بخشی
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#nav"
+          aria-controls="nav"
+          aria-expanded="false"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="nav">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link text-white" href="home.html">خانه</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active text-white" href="products.html"
+                >محصولات</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="news.html">اخبار</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-white" href="Coursespage.html">دوره‌ها</a>
+            </li>
+          </ul>
+          <button class="btn cart-btn ms-3" id="cartButton" type="button">
+            <i class="fas fa-shopping-cart"></i>
+            <span id="cartCount">سبد خرید</span>
+            <span class="cart-badge" id="cartBadge">0</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container my-5">
+      <h1 class="text-center mb-5 text-success">محصولات فروشگاه</h1>
+      <div class="row g-4">
+        <!-- کارت‌های نمونه -->
+        <div class="col-md-4 col-sm-6">
+          <div class="product-card h-100">
+            <i class="fas fa-seedling product-icon"></i>
+            <h5 class="product-title">بذر گوجه ارگانیک</h5>
+            <p class="product-price">۲۵,۰۰۰ تومان</p>
+            <button
+              class="add-btn add-to-cart-btn"
+              data-product="بذر گوجه ارگانیک"
+              data-price="25000"
+              data-icon="fas fa-seedling"
+            >
+              <i class="fas fa-cart-plus me-1"></i>افزودن
+            </button>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="product-card h-100">
+            <i class="fas fa-leaf product-icon"></i>
+            <h5 class="product-title">کود گیاهی</h5>
+            <p class="product-price">۳۵,۰۰۰ تومان</p>
+            <button
+              class="add-btn add-to-cart-btn"
+              data-product="کود گیاهی"
+              data-price="35000"
+              data-icon="fas fa-leaf"
+            >
+              <i class="fas fa-cart-plus me-1"></i>افزودن
+            </button>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="product-card h-100">
+            <i class="fas fa-apple-alt product-icon"></i>
+            <h5 class="product-title">نهال سیب</h5>
+            <p class="product-price">۴۵,۰۰۰ تومان</p>
+            <button
+              class="add-btn add-to-cart-btn"
+              data-product="نهال سیب"
+              data-price="45000"
+              data-icon="fas fa-apple-alt"
+            >
+              <i class="fas fa-cart-plus me-1"></i>افزودن
+            </button>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="product-card h-100">
+            <i class="fas fa-tractor product-icon"></i>
+            <h5 class="product-title">تراکتور کوچک</h5>
+            <p class="product-price">۱۵,۰۰۰,۰۰۰ تومان</p>
+            <button
+              class="add-btn add-to-cart-btn"
+              data-product="تراکتور کوچک"
+              data-price="15000000"
+              data-icon="fas fa-tractor"
+            >
+              <i class="fas fa-cart-plus me-1"></i>افزودن
+            </button>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="product-card h-100">
+            <i class="fas fa-tools product-icon"></i>
+            <h5 class="product-title">کولتیواتور</h5>
+            <p class="product-price">۳,۵۰۰,۰۰۰ تومان</p>
+            <button
+              class="add-btn add-to-cart-btn"
+              data-product="کولتیواتور"
+              data-price="3500000"
+              data-icon="fas fa-tools"
+            >
+              <i class="fas fa-cart-plus me-1"></i>افزودن
+            </button>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="product-card h-100">
+            <i class="fas fa-water product-icon"></i>
+            <h5 class="product-title">سیستم آبیاری نوین</h5>
+            <p class="product-price">۱۸۰,۰۰۰ تومان</p>
+            <button
+              class="add-btn add-to-cart-btn"
+              data-product="سیستم آبیاری نوین"
+              data-price="180000"
+              data-icon="fas fa-water"
+            >
+              <i class="fas fa-cart-plus me-1"></i>افزودن
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- سبد خرید مشترک -->
+    <div class="cart-modal" id="cartModal">
+      <div class="cart-content">
+        <div class="cart-header">
+          <h4>سبد خرید شما</h4>
+          <button class="cart-close-btn" id="closeCart">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="cart-items" id="cartItems">
+          <div class="cart-empty text-center p-4">
+            <i class="fas fa-shopping-cart fa-2x mb-2"></i>
+            <h5>سبد خرید خالی است</h5>
+          </div>
+        </div>
+        <div class="cart-summary">
+          <div class="cart-total" id="cartTotal">مجموع: ۰ تومان</div>
+          <button class="checkout-btn" id="checkoutBtn">
+            <i class="fas fa-credit-card me-2"></i>تسویه حساب
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="notification" id="notification"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="JS/main.js"></script>
+  </body>
+</html>

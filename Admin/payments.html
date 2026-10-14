@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>مدیریت پرداخت - پنل مدیریت فروشگاه کشاورزی</title>
+
+    <!-- Bootstrap 5 RTL -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- Vazirmatn Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="Css/payments.css" />
+  </head>
+  <body>
+    <!-- Sidebar Overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Sidebar -->
+    <nav class="sidebar" id="sidebar">
+      <div class="p-4">
+        <h4 class="mb-4">
+          <i class="fas fa-leaf me-2"></i>
+          پنل مدیریت
+        </h4>
+      </div>
+
+      <nav class="nav flex-column">
+        <a class="nav-link" href="Dashboard.html" data-section="dashboard">
+          <i class="fas fa-chart-line ms-2"></i>
+          داشبورد
+        </a>
+        <a class="nav-link" href="products.html" data-section="products">
+          <i class="fas fa-seedling ms-2"></i>
+          مدیریت محصولات
+        </a>
+        <a class="nav-link" href="users.html" data-section="users">
+          <i class="fas fa-users ms-2"></i>
+          مدیریت کاربران
+        </a>
+        <a class="nav-link" href="payments.html" data-section="Payments">
+          <i class="fas fa-money-check ms-2"></i>
+          مدیریت پرداخت
+        </a>
+        <a class="nav-link" href="orders.html" data-section="orders">
+          <i class="fas fa-shopping-cart ms-2"></i>
+          سفارش‌ها
+        </a>
+        <a class="nav-link" href="courses.html" data-section="courses">
+          <i class="fas fa-video ms-2"></i>
+          مدیریت دوره‌ها
+        </a>
+        <a class="nav-link" href="news.html" data-section="news">
+          <i class="fas fa-newspaper ms-2"></i>
+          مدیریت اخبار
+        </a>
+        <a class="nav-link" href="support.html" data-section="support">
+          <i class="fas fa-headset ms-2"></i>
+          پشتیبانی و چت
+        </a>
+        <hr class="my-3" />
+        <a class="nav-link" href="../home.html">
+          <i class="fas fa-store ms-2"></i>
+          مشاهده فروشگاه
+        </a>
+        <a class="nav-link" href="#" onclick="AdminPanelState.logout()">
+          <i class="fas fa-sign-out-alt ms-2"></i>
+          خروج
+        </a>
+      </nav>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Header -->
+      <header class="header">
+        <div class="container-fluid">
+          <div class="row align-items-center">
+            <div class="col-6 col-md-8">
+              <div class="d-flex align-items-center">
+                <button
+                  class="btn btn-outline-success d-lg-none me-3"
+                  id="toggleSidebar"
+                >
+                  <i class="fas fa-bars"></i>
+                </button>
+                <h3 class="mb-0" id="pageTitle">مدیریت پرداخت</h3>
+              </div>
+            </div>
+            <div class="col-6 col-md-4">
+              <div class="d-flex align-items-center justify-content-end">
+                <span class="me-2 d-none d-sm-inline">خوش آمدید، مدیر</span>
+                <div
+                  class="bg-success rounded-circle d-flex align-items-center justify-content-center"
+                  style="width: 40px; height: 40px"
+                >
+                  <i class="fas fa-user text-white"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Payments Section -->
+      <section id="paymentsSection" class="container-fluid py-4">
+        <!-- Statistics Cards -->
+        <div class="row mb-4">
+          <div class="col-lg-3 col-md-6 mb-3">
+            <div class="stats-card">
+              <div class="d-flex align-items-center">
+                <div
+                  class="stats-icon"
+                  style="background: var(--success-color)"
+                >
+                  <i class="fas fa-money-bill-wave"></i>
+                </div>
+                <div class="me-3">
+                  <h3 class="mb-1" id="totalPayments">87</h3>
+                  <p class="text-muted mb-0">کل پرداخت‌ها</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-3">
+            <div class="stats-card">
+              <div class="d-flex align-items-center">
+                <div
+                  class="stats-icon"
+                  style="background: var(--primary-green)"
+                >
+                  <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="me-3">
+                  <h3 class="mb-1" id="successfulPayments">78</h3>
+                  <p class="text-muted mb-0">پرداخت موفق</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-3">
+            <div class="stats-card">
+              <div class="d-flex align-items-center">
+                <div class="stats-icon" style="background: var(--earth-brown)">
+                  <i class="fas fa-times-circle"></i>
+                </div>
+                <div class="me-3">
+                  <h3 class="mb-1" id="failedPayments">5</h3>
+                  <p class="text-muted mb-0">پرداخت ناموفق</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-3">
+            <div class="stats-card">
+              <div class="d-flex align-items-center">
+                <div
+                  class="stats-icon"
+                  style="background: var(--warning-color)"
+                >
+                  <i class="fas fa-exchange-alt"></i>
+                </div>
+                <div class="me-3">
+                  <h3 class="mb-1" id="refundedPayments">4</h3>
+                  <p class="text-muted mb-0">عودت داده شده</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Filters -->
+        <div class="filter-section">
+          <div class="row">
+            <div class="col-md-3 mb-3">
+              <label class="form-label">وضعیت پرداخت</label>
+              <select class="form-select" id="statusFilter">
+                <option value="all">همه</option>
+                <option value="successful">موفق</option>
+                <option value="failed">ناموفق</option>
+                <option value="pending">در انتظار</option>
+                <option value="refunded">عودت داده شده</option>
+              </select>
+            </div>
+            <div class="col-md-3 mb-3">
+              <label class="form-label">دسته‌بندی محصول</label>
+              <select class="form-select" id="categoryFilter">
+                <option value="all">همه</option>
+                <option value="seeds">بذر</option>
+                <option value="fertilizer">کود</option>
+                <option value="tools">ادوات کشاورزی</option>
+                <option value="courses">دوره آموزشی</option>
+                <option value="saplings">نهال</option>
+              </select>
+            </div>
+            <div class="col-md-3 mb-3">
+              <label class="form-label">از تاریخ</label>
+              <input type="date" class="form-control" id="dateFrom" />
+            </div>
+            <div class="col-md-3 mb-3">
+              <label class="form-label">تا تاریخ</label>
+              <input type="date" class="form-control" id="dateTo" />
+            </div>
+          </div>
+          <div class="row mt-2">
+            <div class="col-12">
+              <button class="btn btn-success" id="applyFilters">
+                <i class="fas fa-filter me-2"></i>
+                اعمال فیلترها
+              </button>
+              <button class="btn btn-outline-secondary me-2" id="resetFilters">
+                <i class="fas fa-redo me-2"></i>
+                بازنشانی
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Payments List -->
+        <div class="row">
+          <div class="col-12">
+            <div class="chart-container">
+              <div
+                class="d-flex justify-content-between align-items-center mb-4"
+              >
+                <h5 class="mb-0">لیست پرداخت‌ها</h5>
+                <div>
+                  <button class="btn btn-outline-success" id="exportBtn">
+                    <i class="fas fa-file-export me-2"></i>
+                    خروجی Excel
+                  </button>
+                </div>
+              </div>
+
+              <div id="paymentsList">
+                <!-- Payment cards will be dynamically generated here -->
+              </div>
+
+              <!-- Pagination -->
+              <nav aria-label="Page navigation" class="mt-4">
+                <ul class="pagination justify-content-center">
+                  <li class="page-item disabled">
+                    <a
+                      class="page-link"
+                      href="#"
+                      tabindex="-1"
+                      aria-disabled="true"
+                      >قبلی</a
+                    >
+                  </li>
+                  <li class="page-item active">
+                    <a class="page-link" href="#">1</a>
+                  </li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item">
+                    <a class="page-link" href="#">بعدی</a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Payment Details Modal -->
+    <div
+      class="modal fade"
+      id="paymentDetailsModal"
+      tabindex="-1"
+      aria-labelledby="paymentDetailsModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="paymentDetailsModalLabel">
+              جزئیات پرداخت
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body" id="paymentDetailsContent">
+            <!-- Details will be populated here -->
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              بستن
+            </button>
+            <button type="button" class="btn btn-success" id="printDetailsBtn">
+              <i class="fas fa-print me-2"></i>
+              چاپ
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="JS/payments.js"></script>
+  </body>
+</html>

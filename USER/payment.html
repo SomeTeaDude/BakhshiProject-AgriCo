@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>پرداخت‌ها - پنل کاربری فروشگاه کشاورزی</title>
+
+    <!-- Bootstrap 5 RTL -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- Vazirmatn Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="CSS/payment.css" />
+  </head>
+  <body>
+    <!-- Sidebar -->
+    <nav class="sidebar" id="sidebar">
+      <div class="p-4">
+        <h4 class="mb-4">
+          <i class="fas fa-user-circle me-2"></i>
+          پنل کاربری
+        </h4>
+      </div>
+
+      <nav class="nav flex-column">
+        <a class="nav-link" href="Dashboard.html" data-section="dashboard">
+          <i class="fas fa-chart-pie ms-2"></i>
+          داشبورد
+        </a>
+        <a class="nav-link" href="payment.html" data-section="payments">
+          <i class="fas fa-credit-card ms-2"></i>
+          پرداخت‌ها
+        </a>
+        <a class="nav-link" href="cart.html" data-section="cart">
+          <i class="fas fa-shopping-cart ms-2"></i>
+          سبد خرید
+        </a>
+        <a class="nav-link" href="mycourses.html" data-section="mycourses">
+          <i class="fas fa-graduation-cap ms-2"></i>
+          دوره‌های من
+        </a>
+        <a class="nav-link" href="myProducts.html" data-section="myproducts">
+          <i class="fas fa-box ms-2"></i>
+          محصولات من
+        </a>
+        <a class="nav-link" href="news.html" data-section="news">
+          <i class="fas fa-newspaper ms-2"></i>
+          اخبار
+        </a>
+        <a class="nav-link" href="profile.html" data-section="profile">
+          <i class="fas fa-user-edit ms-2"></i>
+          ویرایش پروفایل
+        </a>
+        <a class="nav-link" href="support.html" data-section="support">
+          <i class="fas fa-headset ms-2"></i>
+          پیام به پشتیبانی
+        </a>
+        <hr class="my-3" />
+        <a class="nav-link" href="../home.html">
+          <i class="fas fa-store ms-2"></i>
+          مشاهده فروشگاه
+        </a>
+        <a
+          class="nav-link"
+          href="#"
+          onclick="DashboardManager.showLogoutModal()"
+        >
+          <i class="fas fa-sign-out-alt ms-2"></i>
+          خروج
+        </a>
+      </nav>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Header -->
+      <header class="header">
+        <div class="container-fluid">
+          <div class="row align-items-center">
+            <div class="col-6 col-md-8">
+              <div class="d-flex align-items-center">
+                <button
+                  class="btn btn-outline-success d-lg-none me-3"
+                  id="toggleSidebar"
+                >
+                  <i class="fas fa-bars"></i>
+                </button>
+                <h3 class="mb-0">تاریخچه پرداخت‌ها</h3>
+              </div>
+            </div>
+            <div class="col-6 col-md-4">
+              <div class="d-flex align-items-center justify-content-end">
+                <span class="me-2 d-none d-sm-inline" id="userGreeting"
+                  >سلام، رضا عزیز</span
+                >
+                <div class="user-avatar bg-success">
+                  <i class="fas fa-user text-white"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Payments Content -->
+      <section class="payments-content container-fluid py-4">
+        <!-- Header Actions -->
+        <div class="row mb-4">
+          <div class="col-12">
+            <div
+              class="d-flex justify-content-between align-items-center flex-wrap"
+            >
+              <div class="section-header">
+                <h4>مدیریت پرداخت‌ها</h4>
+                <p class="text-muted mb-0">
+                  مشاهده و مدیریت تمام تراکنش‌های مالی شما
+                </p>
+              </div>
+              <div class="header-actions">
+                <button
+                  class="btn btn-primary me-2"
+                  onclick="PaymentsManager.downloadReport()"
+                >
+                  <i class="fas fa-download me-1"></i>
+                  دریافت گزارش
+                </button>
+                <button
+                  class="btn btn-outline-secondary"
+                  onclick="PaymentsManager.printPage()"
+                >
+                  <i class="fas fa-print me-1"></i>
+                  چاپ
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="row mb-4">
+          <div class="col-lg-3 col-md-6 mb-3">
+            <div class="stats-card">
+              <div class="stats-icon bg-primary">
+                <i class="fas fa-money-bill-wave"></i>
+              </div>
+              <div class="stats-content">
+                <h3 id="totalPayments">12</h3>
+                <p>کل پرداخت‌ها</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-3">
+            <div class="stats-card">
+              <div class="stats-icon bg-success">
+                <i class="fas fa-check-circle"></i>
+              </div>
+              <div class="stats-content">
+                <h3 id="successfulPayments">10</h3>
+                <p>پرداخت‌های موفق</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-3">
+            <div class="stats-card">
+              <div class="stats-icon bg-warning">
+                <i class="fas fa-clock"></i>
+              </div>
+              <div class="stats-content">
+                <h3 id="pendingPayments">1</h3>
+                <p>در انتظار پرداخت</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-3">
+            <div class="stats-card">
+              <div class="stats-icon bg-danger">
+                <i class="fas fa-times-circle"></i>
+              </div>
+              <div class="stats-content">
+                <h3 id="failedPayments">1</h3>
+                <p>پرداخت‌های ناموفق</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Filters and Search -->
+        <div class="row mb-4">
+          <div class="col-12">
+            <div class="filters-card">
+              <div class="row g-3">
+                <div class="col-lg-3 col-md-6">
+                  <label class="form-label">جستجو</label>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="جستجو در پرداخت‌ها..."
+                      id="searchInput"
+                    />
+                    <button
+                      class="btn btn-outline-secondary"
+                      type="button"
+                      onclick="PaymentsManager.searchPayments()"
+                    >
+                      <i class="fas fa-search"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                  <label class="form-label">وضعیت پرداخت</label>
+                  <select
+                    class="form-select"
+                    id="statusFilter"
+                    onchange="PaymentsManager.filterPayments()"
+                  >
+                    <option value="all">همه وضعیت‌ها</option>
+                    <option value="successful">موفق</option>
+                    <option value="pending">در انتظار</option>
+                    <option value="failed">ناموفق</option>
+                    <option value="refunded">عودت شده</option>
+                  </select>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                  <label class="form-label">نوع تراکنش</label>
+                  <select
+                    class="form-select"
+                    id="typeFilter"
+                    onchange="PaymentsManager.filterPayments()"
+                  >
+                    <option value="all">همه انواع</option>
+                    <option value="course">دوره آموزشی</option>
+                    <option value="product">محصول</option>
+                    <option value="subscription">اشتراک</option>
+                    <option value="wallet">کیف پول</option>
+                  </select>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                  <label class="form-label">بازه زمانی</label>
+                  <select
+                    class="form-select"
+                    id="dateFilter"
+                    onchange="PaymentsManager.filterPayments()"
+                  >
+                    <option value="all">همه زمان‌ها</option>
+                    <option value="today">امروز</option>
+                    <option value="week">هفته جاری</option>
+                    <option value="month">ماه جاری</option>
+                    <option value="year">سال جاری</option>
+                    <option value="custom">انتخاب تاریخ</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row mt-3" id="customDateRange" style="display: none">
+                <div class="col-md-6">
+                  <label class="form-label">از تاریخ</label>
+                  <input type="date" class="form-control" id="startDate" />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">تا تاریخ</label>
+                  <input type="date" class="form-control" id="endDate" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Payments Table -->
+        <div class="row">
+          <div class="col-12">
+            <div class="payments-table-card">
+              <div class="table-header">
+                <h5>لیست پرداخت‌ها</h5>
+                <div class="table-actions">
+                  <button
+                    class="btn btn-sm btn-outline-secondary me-2"
+                    onclick="PaymentsManager.exportToExcel()"
+                  >
+                    <i class="fas fa-file-excel me-1"></i>
+                    خروجی Excel
+                  </button>
+                  <div class="btn-group">
+                    <button
+                      class="btn btn-sm btn-outline-secondary"
+                      onclick="PaymentsManager.refreshData()"
+                    >
+                      <i class="fas fa-sync-alt"></i>
+                    </button>
+                    <button
+                      class="btn btn-sm btn-outline-secondary"
+                      onclick="PaymentsManager.toggleView()"
+                    >
+                      <i class="fas fa-th"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="table-responsive">
+                <table class="table table-hover" id="paymentsTable">
+                  <thead>
+                    <tr>
+                      <th>
+                        <input
+                          type="checkbox"
+                          id="selectAll"
+                          onchange="PaymentsManager.toggleSelectAll(this)"
+                        />
+                      </th>
+                      <th>شناسه تراکنش</th>
+                      <th>تاریخ و زمان</th>
+                      <th>مبلغ (تومان)</th>
+                      <th>نوع تراکنش</th>
+                      <th>وضعیت</th>
+                      <th>درگاه پرداخت</th>
+                      <th>عملیات</th>
+                    </tr>
+                  </thead>
+                  <tbody id="paymentsTableBody">
+                    <!-- Payments will be loaded here -->
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- Pagination -->
+              <div class="table-footer">
+                <div class="row align-items-center">
+                  <div class="col-md-6">
+                    <div class="results-info">
+                      نمایش <span id="startResult">1</span> تا
+                      <span id="endResult">10</span> از
+                      <span id="totalResults">0</span> نتیجه
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <nav aria-label="Page navigation">
+                      <ul
+                        class="pagination justify-content-end mb-0"
+                        id="pagination"
+                      >
+                        <!-- Pagination will be generated here -->
+                      </ul>
+                    </nav>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Selected Actions -->
+        <div class="row mt-4" id="selectedActions" style="display: none">
+          <div class="col-12">
+            <div class="selected-actions-card">
+              <div class="d-flex align-items-center justify-content-between">
+                <div>
+                  <i class="fas fa-check-circle text-success me-2"></i>
+                  <span id="selectedCount">0</span> آیتم انتخاب شده
+                </div>
+                <div>
+                  <button
+                    class="btn btn-sm btn-outline-danger me-2"
+                    onclick="PaymentsManager.deleteSelected()"
+                  >
+                    <i class="fas fa-trash me-1"></i>
+                    حذف انتخاب‌ها
+                  </button>
+                  <button
+                    class="btn btn-sm btn-outline-secondary"
+                    onclick="PaymentsManager.clearSelection()"
+                  >
+                    <i class="fas fa-times me-1"></i>
+                    لغو انتخاب
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Charts Section -->
+        <div class="row mt-5">
+          <div class="col-lg-8">
+            <div class="chart-card">
+              <div class="chart-header">
+                <h5>آمار پرداخت‌ها در ۶ ماه گذشته</h5>
+                <select
+                  class="form-select form-select-sm"
+                  onchange="PaymentsManager.updateChart(this.value)"
+                  style="width: auto"
+                >
+                  <option value="amount">بر اساس مبلغ</option>
+                  <option value="count">بر اساس تعداد</option>
+                </select>
+              </div>
+              <div class="chart-body">
+                <canvas id="paymentsChart" height="300"></canvas>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="chart-card">
+              <div class="chart-header">
+                <h5>توزیع پرداخت‌ها بر اساس نوع</h5>
+              </div>
+              <div class="chart-body">
+                <canvas id="paymentTypesChart" height="300"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Transactions -->
+        <div class="row mt-5">
+          <div class="col-12">
+            <div class="recent-transactions-card">
+              <div class="card-header">
+                <h5>تراکنش‌های اخیر</h5>
+                <button
+                  class="btn btn-sm btn-outline-primary"
+                  onclick="PaymentsManager.viewAllTransactions()"
+                >
+                  مشاهده همه
+                </button>
+              </div>
+              <div class="card-body">
+                <div class="transactions-list" id="recentTransactions">
+                  <!-- Recent transactions will be loaded here -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Payment Details Modal -->
+    <div class="modal fade" id="paymentDetailsModal" tabindex="-1">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">جزئیات پرداخت</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-body" id="paymentDetailsContent">
+            <!-- Payment details will be loaded here -->
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              بستن
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              onclick="PaymentsManager.downloadReceipt()"
+            >
+              <i class="fas fa-receipt me-1"></i>
+              دریافت فاکتور
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Logout Modal -->
+    <div class="modal fade" id="logoutModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-body text-center p-4">
+            <div class="mb-3">
+              <i
+                class="fas fa-sign-out-alt text-warning"
+                style="font-size: 48px"
+              ></i>
+            </div>
+            <h5 class="mb-3">خروج از حساب کاربری</h5>
+            <p class="text-muted mb-4">
+              آیا مطمئن هستید که می‌خواهید خارج شوید؟
+            </p>
+            <div class="d-flex justify-content-center gap-3">
+              <button
+                type="button"
+                class="btn btn-secondary px-4"
+                data-bs-dismiss="modal"
+              >
+                <i class="fas fa-times ms-1"></i>
+                انصراف
+              </button>
+              <button
+                type="button"
+                class="btn btn-warning px-4"
+                onclick="PaymentsManager.confirmLogout()"
+              >
+                <i class="fas fa-sign-out-alt ms-1"></i>
+                خروج
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="js/payment.js"></script>
+  </body>
+</html>

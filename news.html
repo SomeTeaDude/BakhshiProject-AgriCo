@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>اخبار - مهندس بخشی</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.rtl.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="Css/news.css" />
+    <link rel="stylesheet" href="Css/main.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container">
+        <a class="navbar-brand text-white fw-bold" href="home.html">
+          <i class="fas fa-seedling me-2"></i>مهندس بخشی
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#nav"
+          aria-controls="nav"
+          aria-expanded="false"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="nav">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link text-white" href="home.html">خانه</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="products.html">محصولات</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active text-white" href="news.html">اخبار</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="Coursespage.html">دوره‌ها</a>
+            </li>
+          </ul>
+          <button class="btn cart-btn ms-3" id="cartButton" type="button">
+            <i class="fas fa-shopping-cart"></i>
+            <span id="cartCount">سبد خرید</span>
+            <span class="cart-badge" id="cartBadge">0</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container my-5">
+      <h1 class="text-center mb-5 text-success">آخرین اخبار</h1>
+      <div class="row g-4">
+        <!-- کارت‌های خبر نمونه -->
+        <div class="col-md-4 col-sm-6">
+          <div class="news-card">
+            <h5 class="news-title">افتتاح گلخانه هوشمند</h5>
+            <div class="news-date">۲ مهر ۱۴۰۴</div>
+            <p>
+              گلخانه‌ای با سیستم‌های هوشمند آبیاری و کنترل دما در شمال کشور
+              افتتاح شد...
+            </p>
+            <a href="#" class="read-more">ادامه خبر</a>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="news-card">
+            <h5 class="news-title">افزایش صادرات محصولات ارگانیک</h5>
+            <div class="news-date">۲۹ شهریور ۱۴۰۴</div>
+            <p>
+              صادرات محصولات ارگانیک ایران نسبت به سال گذشته ۲۰٪ افزایش داشته
+              است...
+            </p>
+            <a href="#" class="read-more">ادامه خبر</a>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="news-card">
+            <h5 class="news-title">کارگاه آموزشی هیدروپونیک</h5>
+            <div class="news-date">۲۵ شهریور ۱۴۰۴</div>
+            <p>
+              کارگاه تخصصی کشت هیدروپونیک در دانشگاه کشاورزی برگزار می‌شود...
+            </p>
+            <a href="#" class="read-more">ادامه خبر</a>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="news-card">
+            <h5 class="news-title">توسعه سیستم آبیاری نوین</h5>
+            <div class="news-date">۲۰ شهریور ۱۴۰۴</div>
+            <p>
+              مهندسین داخلی موفق به توسعه نسل جدید سیستم‌های آبیاری قطره‌ای
+              شدند...
+            </p>
+            <a href="#" class="read-more">ادامه خبر</a>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="news-card">
+            <h5 class="news-title">نمایشگاه فناوری کشاورزی</h5>
+            <div class="news-date">۱۵ شهریور ۱۴۰۴</div>
+            <p>
+              نمایشگاه بین‌المللی فناوری کشاورزی در تهران آغاز به کار کرد...
+            </p>
+            <a href="#" class="read-more">ادامه خبر</a>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="news-card">
+            <h5 class="news-title">حمایت دولت از کشاورزی هوشمند</h5>
+            <div class="news-date">۱۰ شهریور ۱۴۰۴</div>
+            <p>طرح‌های حمایتی جدید برای توسعه کشاورزی هوشمند اعلام شد...</p>
+            <a href="#" class="read-more">ادامه خبر</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="JS/main.js"></script>
+  </body>
+</html>

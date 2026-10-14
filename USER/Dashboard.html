@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>داشبورد - پنل کاربری فروشگاه کشاورزی</title>
+
+    <!-- Bootstrap 5 RTL -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- Vazirmatn Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="CSS/Dashboard.css" />
+  </head>
+  <body>
+    <!-- Sidebar -->
+    <nav class="sidebar" id="sidebar">
+      <div class="p-4">
+        <h4 class="mb-4">
+          <i class="fas fa-user-circle me-2"></i>
+          پنل کاربری
+        </h4>
+      </div>
+
+      <nav class="nav flex-column">
+        <a
+          class="nav-link active"
+          href="Dashboard.html"
+          data-section="dashboard"
+        >
+          <i class="fas fa-chart-pie ms-2"></i>
+          داشبورد
+        </a>
+        <a class="nav-link" href="payment.html" data-section="payments">
+          <i class="fas fa-credit-card ms-2"></i>
+          پرداخت‌ها
+        </a>
+        <a class="nav-link" href="cart.html" data-section="cart">
+          <i class="fas fa-shopping-cart ms-2"></i>
+          سبد خرید
+        </a>
+        <a class="nav-link" href="mycourses.html" data-section="mycourses">
+          <i class="fas fa-graduation-cap ms-2"></i>
+          دوره‌های من
+        </a>
+        <a class="nav-link" href="myProducts.html" data-section="myproducts">
+          <i class="fas fa-box ms-2"></i>
+          محصولات من
+        </a>
+        <a class="nav-link" href="news.html" data-section="news">
+          <i class="fas fa-newspaper ms-2"></i>
+          اخبار
+        </a>
+        <a class="nav-link" href="profile.html" data-section="profile">
+          <i class="fas fa-user-edit ms-2"></i>
+          ویرایش پروفایل
+        </a>
+        <a class="nav-link" href="support.html" data-section="support">
+          <i class="fas fa-headset ms-2"></i>
+          پیام به پشتیبانی
+        </a>
+        <hr class="my-3" />
+        <a class="nav-link" href="../home.html">
+          <i class="fas fa-store ms-2"></i>
+          مشاهده فروشگاه
+        </a>
+        <a
+          class="nav-link"
+          href="#"
+          onclick="DashboardManager.showLogoutModal()"
+        >
+          <i class="fas fa-sign-out-alt ms-2"></i>
+          خروج
+        </a>
+      </nav>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Header -->
+      <header class="header">
+        <div class="container-fluid">
+          <div class="row align-items-center">
+            <div class="col-6 col-md-8">
+              <div class="d-flex align-items-center">
+                <button
+                  class="btn btn-outline-success d-lg-none me-3"
+                  id="toggleSidebar"
+                >
+                  <i class="fas fa-bars"></i>
+                </button>
+                <h3 class="mb-0">داشبورد</h3>
+              </div>
+            </div>
+            <div class="col-6 col-md-4">
+              <div class="d-flex align-items-center justify-content-end">
+                <span class="me-2 d-none d-sm-inline" id="userGreeting"
+                  >سلام، رضا عزیز</span
+                >
+                <div class="user-avatar bg-success">
+                  <i class="fas fa-user text-white"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Dashboard Content -->
+      <section class="dashboard-content container-fluid py-4">
+        <!-- Stats Cards -->
+        <div class="row mb-4">
+          <div class="col-lg-3 col-md-6 mb-3">
+            <div class="stats-card" data-aos="fade-up">
+              <div class="d-flex align-items-center">
+                <div class="stats-icon bg-success">
+                  <i class="fas fa-shopping-bag"></i>
+                </div>
+                <div class="me-3">
+                  <h3 class="mb-1" id="totalOrders">5</h3>
+                  <p class="text-muted mb-0">سفارش‌های من</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-3">
+            <div class="stats-card" data-aos="fade-up" data-aos-delay="100">
+              <div class="d-flex align-items-center">
+                <div class="stats-icon bg-primary">
+                  <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="me-3">
+                  <h3 class="mb-1" id="totalCourses">3</h3>
+                  <p class="text-muted mb-0">دوره‌های من</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-3">
+            <div class="stats-card" data-aos="fade-up" data-aos-delay="200">
+              <div class="d-flex align-items-center">
+                <div class="stats-icon bg-brown">
+                  <i class="fas fa-wallet"></i>
+                </div>
+                <div class="me-3">
+                  <h3 class="mb-1" id="totalSpent">2,450,000</h3>
+                  <p class="text-muted mb-0">کل خرید (تومان)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-3">
+            <div class="stats-card" data-aos="fade-up" data-aos-delay="300">
+              <div class="d-flex align-items-center">
+                <div class="stats-icon bg-warning">
+                  <i class="fas fa-shopping-cart"></i>
+                </div>
+                <div class="me-3">
+                  <h3 class="mb-1" id="cartItems">2</h3>
+                  <p class="text-muted mb-0">آیتم در سبد</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Access -->
+        <div class="row mb-4">
+          <div class="col-12">
+            <h5 class="mb-3">دسترسی سریع</h5>
+          </div>
+          <div class="col-lg-2 col-md-4 col-6 mb-3">
+            <div
+              class="quick-access-card text-center"
+              onclick="DashboardManager.navigateTo('cart')"
+            >
+              <i class="fas fa-shopping-cart fa-2x text-warning mb-3"></i>
+              <h6>سبد خرید</h6>
+              <small class="text-muted">مشاهده سبد</small>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-4 col-6 mb-3">
+            <div
+              class="quick-access-card text-center"
+              onclick="DashboardManager.navigateTo('mycourses')"
+            >
+              <i class="fas fa-graduation-cap fa-2x text-success mb-3"></i>
+              <h6>دوره‌های من</h6>
+              <small class="text-muted">ادامه یادگیری</small>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-4 col-6 mb-3">
+            <div
+              class="quick-access-card text-center"
+              onclick="DashboardManager.navigateTo('myproducts')"
+            >
+              <i class="fas fa-box fa-2x text-primary mb-3"></i>
+              <h6>محصولات من</h6>
+              <small class="text-muted">وضعیت سفارش‌ها</small>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-4 col-6 mb-3">
+            <div
+              class="quick-access-card text-center"
+              onclick="DashboardManager.navigateTo('payments')"
+            >
+              <i class="fas fa-credit-card fa-2x text-info mb-3"></i>
+              <h6>پرداخت‌ها</h6>
+              <small class="text-muted">تاریخچه تراکنش</small>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-4 col-6 mb-3">
+            <div
+              class="quick-access-card text-center"
+              onclick="DashboardManager.navigateTo('news')"
+            >
+              <i class="fas fa-newspaper fa-2x text-danger mb-3"></i>
+              <h6>اخبار</h6>
+              <small class="text-muted">آخرین اخبار</small>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-4 col-6 mb-3">
+            <div
+              class="quick-access-card text-center"
+              onclick="DashboardManager.navigateTo('support')"
+            >
+              <i class="fas fa-headset fa-2x text-secondary mb-3"></i>
+              <h6>پشتیبانی</h6>
+              <small class="text-muted">ارتباط با ما</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- Main Content Row -->
+        <div class="row">
+          <!-- Recent Activities -->
+          <div class="col-md-6 mb-4">
+            <div class="dashboard-widget">
+              <div class="widget-header">
+                <i class="fas fa-clock me-2"></i>
+                <h6>آخرین فعالیت‌ها</h6>
+                <button
+                  class="btn btn-sm btn-outline-secondary"
+                  onclick="DashboardManager.viewAllActivities()"
+                >
+                  مشاهده همه
+                </button>
+              </div>
+              <div class="widget-body">
+                <div class="activity-list" id="recentActivities">
+                  <!-- Activities will be loaded here -->
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Suggested Courses -->
+          <div class="col-md-6 mb-4">
+            <div class="dashboard-widget">
+              <div class="widget-header">
+                <i class="fas fa-star me-2"></i>
+                <h6>دوره‌های پیشنهادی</h6>
+                <button
+                  class="btn btn-sm btn-outline-primary"
+                  onclick="DashboardManager.viewAllCourses()"
+                >
+                  همه دوره‌ها
+                </button>
+              </div>
+              <div class="widget-body">
+                <div class="suggested-courses" id="suggestedCourses">
+                  <!-- Courses will be loaded here -->
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Progress Chart -->
+          <div class="col-md-8 mb-4">
+            <div class="dashboard-widget">
+              <div class="widget-header">
+                <i class="fas fa-chart-line me-2"></i>
+                <h6>پیشرفت یادگیری</h6>
+                <div class="time-filter">
+                  <select
+                    class="form-select form-select-sm"
+                    onchange="DashboardManager.filterProgressChart(this.value)"
+                  >
+                    <option value="week">هفته جاری</option>
+                    <option value="month" selected>ماه جاری</option>
+                    <option value="year">سال جاری</option>
+                  </select>
+                </div>
+              </div>
+              <div class="widget-body">
+                <div class="progress-chart" id="progressChart">
+                  <!-- Chart will be rendered here -->
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Notifications -->
+          <div class="col-md-4 mb-4">
+            <div class="dashboard-widget">
+              <div class="widget-header">
+                <i class="fas fa-bell me-2"></i>
+                <h6>اعلان‌ها</h6>
+                <span class="badge bg-danger" id="notificationCount">3</span>
+              </div>
+              <div class="widget-body">
+                <div class="notifications-list" id="notificationsList">
+                  <!-- Notifications will be loaded here -->
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Popular Products -->
+          <div class="col-12 mb-4">
+            <div class="dashboard-widget">
+              <div class="widget-header">
+                <i class="fas fa-fire me-2"></i>
+                <h6>محصولات پرطرفدار</h6>
+                <button
+                  class="btn btn-sm btn-outline-success"
+                  onclick="DashboardManager.viewAllProducts()"
+                >
+                  مشاهده همه
+                </button>
+              </div>
+              <div class="widget-body">
+                <div class="popular-products" id="popularProducts">
+                  <!-- Products will be loaded here -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Logout Modal -->
+    <div class="modal fade" id="logoutModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-body text-center p-4">
+            <div class="mb-3">
+              <i
+                class="fas fa-sign-out-alt text-warning"
+                style="font-size: 48px"
+              ></i>
+            </div>
+            <h5 class="mb-3">خروج از حساب کاربری</h5>
+            <p class="text-muted mb-4">
+              آیا مطمئن هستید که می‌خواهید خارج شوید؟
+            </p>
+            <div class="d-flex justify-content-center gap-3">
+              <button
+                type="button"
+                class="btn btn-secondary px-4"
+                data-bs-dismiss="modal"
+              >
+                <i class="fas fa-times ms-1"></i>
+                انصراف
+              </button>
+              <button
+                type="button"
+                class="btn btn-warning px-4"
+                onclick="DashboardManager.confirmLogout()"
+              >
+                <i class="fas fa-sign-out-alt ms-1"></i>
+                خروج
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="js/Dashboard.js"></script>
+  </body>
+</html>

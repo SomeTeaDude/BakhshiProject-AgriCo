@@ -1,0 +1,263 @@
+:root {
+  --primary-green: #2e7d32;
+  --secondary-green: #4caf50;
+  --light-green: #c8e6c9;
+  --earth-brown: #6d4c41;
+  --light-brown: #d7ccc8;
+  --success-color: #66bb6a;
+  --warning-color: #ff9800;
+  --danger-color: #f44336;
+  --info-color: #2196f3;
+}
+
+* {
+  font-family: "Vazirmatn", sans-serif;
+}
+
+body {
+  background-color: #f8f9fa;
+  font-size: 14px;
+  overflow-x: hidden;
+}
+
+.sidebar {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--primary-green), var(--earth-brown));
+  color: white;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 280px;
+  z-index: 1000;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  overflow-y: auto;
+}
+
+.sidebar.show {
+  transform: translateX(0);
+}
+
+.sidebar .nav-link {
+  color: rgba(255, 255, 255, 0.8);
+  padding: 12px 20px;
+  margin: 5px 15px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar .nav-link:hover,
+.sidebar .nav-link.active {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  transform: translateX(-5px);
+}
+
+.main-content {
+  width: 100%;
+  min-height: 100vh;
+}
+
+@media (min-width: 992px) {
+  .sidebar {
+    position: fixed;
+    transform: translateX(0);
+  }
+  .main-content {
+    margin-right: 280px;
+    width: calc(100% - 280px);
+  }
+}
+
+.header {
+  background: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 15px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.sidebar-overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.support-tab {
+  display: none;
+}
+
+.support-tab.active {
+  display: block;
+}
+
+.ticket-chat-container {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+#supportSection .card {
+  border: none;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#supportSection .card-header {
+  border-bottom: 2px solid #e3f2fd;
+}
+
+.ticket-message {
+  border-radius: 10px;
+  margin: 10px;
+  padding: 12px;
+  max-width: 80%;
+}
+
+.ticket-message.user {
+  margin-left: auto;
+  background: #1976d2;
+  color: white;
+}
+
+.ticket-message.support {
+  margin-right: auto;
+  background: white;
+  border: 1px solid #e0e0e0;
+}
+
+.ticket-message.system {
+  margin: 10px auto;
+  background: #fff3e0;
+  border: 1px solid #ffb74d;
+  max-width: 60%;
+  text-align: center;
+}
+
+.ticket-status-badge {
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.8em;
+  font-weight: 500;
+}
+
+.status-open {
+  background-color: #e3f2fd;
+  color: #1976d2;
+}
+
+.status-pending {
+  background-color: #fff3e0;
+  color: #f57c00;
+}
+
+.status-resolved {
+  background-color: #e8f5e8;
+  color: #388e3c;
+}
+
+.status-closed {
+  background-color: #f5f5f5;
+  color: #616161;
+}
+
+.priority-badge {
+  padding: 3px 6px;
+  border-radius: 8px;
+  font-size: 0.7em;
+}
+
+.priority-low {
+  background-color: #e8f5e8;
+  color: #388e3c;
+}
+
+.priority-medium {
+  background-color: #fff3e0;
+  color: #f57c00;
+}
+
+.priority-high {
+  background-color: #ffebee;
+  color: #d32f2f;
+}
+
+.priority-urgent {
+  background-color: #fce4ec;
+  color: #c2185b;
+}
+
+#supportTabs .btn {
+  border-radius: 0;
+  flex: 1;
+}
+
+#supportTabs .btn.active {
+  background-color: #e3f2fd;
+  color: #1976d2;
+  border-color: #2196f3;
+}
+
+.message-content {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.btn-primary {
+  background: var(--primary-green);
+  border-color: var(--primary-green);
+  border-radius: 8px;
+}
+
+.btn-primary:hover {
+  background: var(--secondary-green);
+  border-color: var(--secondary-green);
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 10px 15px;
+  }
+  .header h3 {
+    font-size: 18px;
+  }
+  .container-fluid {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .modal-dialog {
+    margin: 10px;
+    max-width: calc(100% - 20px);
+  }
+  .ticket-message {
+    max-width: 85%;
+  }
+}

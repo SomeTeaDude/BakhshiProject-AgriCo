@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ورود و ثبت نام - مهندس بخشی</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.rtl.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="Css/login-SignUp.css" />
+  </head>
+  <body>
+    <!-- صفحه اصلی انتخاب نوع ورود -->
+    <div class="auth-container" id="loginTypePage">
+      <div class="auth-header">
+        <h2><i class="fas fa-seedling"></i> ورود به حساب کاربری</h2>
+      </div>
+      <button class="back-btn" onclick="window.location.href='home.html'">
+        <i class="fas fa-arrow-right"></i>
+      </button>
+      <div class="auth-content">
+        <div class="auth-step active" id="loginTypeStep">
+          <p>لطفاً روش ورود به حساب کاربری خود را انتخاب کنید:</p>
+
+          <div class="login-options">
+            <div
+              class="login-option active"
+              data-type="email"
+              onclick="selectLoginType('email')"
+            >
+              <i class="fas fa-envelope"></i>
+              <div>ورود با ایمیل</div>
+            </div>
+            <div
+              class="login-option"
+              data-type="phone"
+              onclick="selectLoginType('phone')"
+            >
+              <i class="fas fa-phone"></i>
+              <div>ورود با شماره تماس</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" id="loginLabel">ایمیل</label>
+            <div class="position-relative">
+              <i class="input-icon fas fa-envelope"></i>
+              <input
+                type="text"
+                class="form-control has-icon"
+                id="loginInput"
+                placeholder="example@example.com"
+              />
+            </div>
+          </div>
+
+          <div class="form-group" id="passwordField">
+            <label class="form-label">رمز عبور</label>
+            <div class="position-relative">
+              <i class="input-icon fas fa-lock"></i>
+              <input
+                type="password"
+                class="form-control has-icon"
+                id="passwordInput"
+                placeholder="رمز عبور خود را وارد کنید"
+              />
+              <button
+                type="button"
+                class="password-toggle"
+                onclick="togglePassword()"
+              >
+                <i class="fas fa-eye"></i>
+              </button>
+            </div>
+          </div>
+
+          <button class="btn-auth" onclick="proceedToLogin()">
+            <i class="fas fa-sign-in-alt me-2"></i> ورود به حساب
+          </button>
+
+          <div class="auth-switch">
+            حساب کاربری ندارید؟
+            <a href="#" onclick="showRegisterPage()">ثبت نام کنید</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- صفحه ثبت نام -->
+    <div class="auth-container" id="registerPage" style="display: none">
+      <div class="auth-header">
+        <h2><i class="fas fa-user-plus"></i> ایجاد حساب کاربری</h2>
+      </div>
+      <button class="back-btn" onclick="showLoginPage()">
+        <i class="fas fa-arrow-right"></i>
+      </button>
+      <div class="auth-content">
+        <div class="auth-step active" id="registerStep">
+          <div class="form-group">
+            <label class="form-label">نام</label>
+            <div class="position-relative">
+              <i class="input-icon fas fa-user"></i>
+              <input
+                type="text"
+                class="form-control has-icon"
+                id="firstName"
+                placeholder="نام خود را وارد کنید"
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">نام خانوادگی</label>
+            <div class="position-relative">
+              <i class="input-icon fas fa-user"></i>
+              <input
+                type="text"
+                class="form-control has-icon"
+                id="lastName"
+                placeholder="نام خانوادگی خود را وارد کنید"
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label"
+              >شماره تماس <span class="text-danger">*</span></label
+            >
+            <div class="position-relative">
+              <i class="input-icon fas fa-phone"></i>
+              <input
+                type="tel"
+                class="form-control has-icon"
+                id="phoneNumber"
+                placeholder="09xxxxxxxxx"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">ایمیل (اختیاری)</label>
+            <div class="position-relative">
+              <i class="input-icon fas fa-envelope"></i>
+              <input
+                type="email"
+                class="form-control has-icon"
+                id="email"
+                placeholder="example@example.com"
+              />
+            </div>
+          </div>
+
+          <button class="btn-auth" onclick="registerUser()">
+            <i class="fas fa-user-plus me-2"></i> ایجاد حساب
+          </button>
+
+          <div class="auth-switch">
+            قبلاً حساب دارید؟
+            <a href="#" onclick="showLoginPage()">وارد شوید</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- صفحه وارد کردن کد تایید -->
+    <div class="auth-container" id="otpPage" style="display: none">
+      <div class="auth-header">
+        <h2><i class="fas fa-mobile-alt"></i> تایید هویت</h2>
+      </div>
+      <button class="back-btn" onclick="goBackFromOtp()">
+        <i class="fas fa-arrow-right"></i>
+      </button>
+      <div class="auth-content">
+        <div class="auth-step active" id="otpStep">
+          <div class="success-message">
+            <i class="fas fa-check-circle me-2"></i>
+            کد تایید به شماره <span id="otpPhoneNumber">09xxxxxxxxx</span> ارسال
+            شد
+          </div>
+
+          <p>لطفاً کد چهار رقمی ارسال شده را وارد کنید:</p>
+
+          <div class="otp-container">
+            <input
+              type="text"
+              class="otp-input"
+              maxlength="1"
+              oninput="moveToNext(this, 1)"
+            />
+            <input
+              type="text"
+              class="otp-input"
+              maxlength="1"
+              oninput="moveToNext(this, 2)"
+            />
+            <input
+              type="text"
+              class="otp-input"
+              maxlength="1"
+              oninput="moveToNext(this, 3)"
+            />
+            <input
+              type="text"
+              class="otp-input"
+              maxlength="1"
+              oninput="moveToNext(this, 4)"
+            />
+          </div>
+
+          <button class="btn-auth" onclick="verifyOtp()">
+            <i class="fas fa-check me-2"></i> تایید کد
+          </button>
+
+          <div class="resend-code">
+            کد را دریافت نکردید؟
+            <a href="#" id="resendLink" onclick="resendOtp()">ارسال مجدد کد</a>
+            <span id="countdown" class="countdown" style="display: none">
+              (02:00)</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="JS/login-SignUp.js"></script>
+  </body>
+</html>

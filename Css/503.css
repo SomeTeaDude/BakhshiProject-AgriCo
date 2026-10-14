@@ -1,0 +1,28 @@
+body {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e8f5e8 100%);
+  font-family: "Vazirmatn", sans-serif;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.error-box {
+  text-align: center;
+}
+.error-code {
+  font-size: 8rem;
+  font-weight: 700;
+  color: #ffc107;
+}
+.btn-home {
+  background: linear-gradient(45deg, #4caf50, #81c784);
+  border: none;
+  color: #fff;
+  padding: 10px 30px;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.btn-home:hover {
+  opacity: 0.9;
+}
